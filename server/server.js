@@ -13,6 +13,10 @@ app.get('./devices/:id', devices.findById);
 
 app.post('/devices', devices.add);
 
+app.delete('/devices/:id', devices.delete); 
+
+app.put('/devices/:id', devices.update);
+
 var server = app.listen(8080, function () {
 
   var host = server.address().address

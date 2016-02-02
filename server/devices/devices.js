@@ -21,3 +21,38 @@ exports.add = function(request, result) {
     result.send([{status: '1'}]);
 };
 
+exports.delete = function(request, result){
+    var id = request.params.id;
+	
+    devices = devices.filter(function(item){
+        return item.id != id;
+    });
+	
+    console.log("Device removed from repository: " + id);
+    result.send([{status: '1'}]);
+};
+
+exports.update = function(request, result) {
+   
+	var id = request.params.id;
+    var device = request.body;
+	
+    if(id != device.id){
+        console.log("Id of device to be updated doesn't match with device object holding updated data");
+        result.send([{status: '0'}]);
+    }
+    console.log(device);
+
+    // find the selected device & update
+    devices.forEach(function(item, i)
+	{
+        if(device.id == id){
+            // update           
+            devices[i] = device; 
+            result.send([{status: '1'}]);
+            return;
+        }
+    });
+    result.send([{status: '0'}]);
+};
+
