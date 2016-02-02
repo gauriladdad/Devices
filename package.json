@@ -1,0 +1,20 @@
+{
+  "name": "devices",
+  "version": "1.0.0",
+  "description": "This is a MEAN stack application for device repository management.",
+  "main": "app.js",
+  "dependencies" : {
+    "express"    : "*",
+    "mongoose"   : "*"
+    },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gauriladdad/devices.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gauriladdad/devices/issues"
+  },
+  "homepage": "https://github.com/gauriladdad/devices#readme"
+}
