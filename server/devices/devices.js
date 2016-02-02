@@ -14,3 +14,10 @@ exports.findById = function(request, result) {
 	result.send(devices[request.params.id]);
 };
 
+exports.add = function(request, result) {
+    var device = request.body;
+    devices.push(device);
+    console.log("new device added to repository");
+    result.send([{status: '1'}]);
+};
+
