@@ -1,11 +1,10 @@
 var express = require('express'),
-	devices = require('./devices/devices.js');
+	devices = require('./devices/devices.js'),
+	bodyParser = require('body-parser');
 	
 var app = express();
 
-app.configure(function () {
-    app.use(express.bodyParser());
-});
+app.use(bodyParser.json()); 
 
 app.get('/devices', devices.findAll);
 
