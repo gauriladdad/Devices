@@ -1,6 +1,7 @@
 var express = require('express'),
 	devices = require('./devices/devices.js'),
-	bodyParser = require('body-parser');
+	bodyParser = require('body-parser'),
+	path = require('path');
 	
 var app = express();
 
@@ -15,6 +16,13 @@ app.post('/devices', devices.add);
 app.delete('/devices/:id', devices.delete); 
 
 app.put('/devices/:id', devices.update);
+/*
+We will add one route to our server.js file for the frontend application.
+This is all we need to do since Angular will be making a single page application and handle the routing.
+*/
+app.get('/deviceManager', function (request, result) {
+	result.sendFile('index.html', {root: path.resolve(__dirname)});
+});
 
 var server = app.listen(8080, function () {
 
